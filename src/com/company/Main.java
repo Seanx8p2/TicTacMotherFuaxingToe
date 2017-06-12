@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
 
 
-    Scanner s = new Scanner(System.in);
+    private static Scanner s = new Scanner(System.in);
 
     public static void main(String[] args)
     {
@@ -17,9 +17,17 @@ public class Main {
         Game game = new Game();
 
 
-        int[][] grid = {{'x',' ','x','z'}
-                       ,{'o','o',' ','k'}
-                       ,{'x',' ','x', 'q'}};
+        int[][] grid = {{'x','x',' '}
+                       ,{' ',' ',' '}
+                       ,{' ',' ',' '}};
+
+
+
+
+
+
+
+
 
         try
         {

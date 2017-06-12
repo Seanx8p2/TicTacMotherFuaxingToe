@@ -5,10 +5,16 @@ import java.util.Scanner;
 /**
  * Created by Sean Whitfield on 6/6/2017.
  */
+
 public class Game
 {
 
-    Scanner input = new Scanner(System.in);
+    int[][] grid =  {{' ',' ',' '}
+                    ,{' ',' ',' '}
+                    ,{' ',' ',' '}};
+
+    Scanner scanner = new Scanner(System.in);
+
     char currentPlayer;
 
 //Defining variables
@@ -18,50 +24,94 @@ public class Game
     public Game()
     {
         this.running = true;
-        this.currentPlayer = 'x';
-
-
+        this.currentPlayer = 'X';
     }
+
+    // decide which player goes first
+    // get scanner
+    // receive and display moves
+    // if statement for has anyone won
+    // Advanced graphics
+
 
 
   public boolean run()
   {
       System.out.println("run() has been executed");
 
-      // decide which player goes first
-            // pvt void player
-      // get input
-      // receive and display moves
-      // if statement for has anyone won
-      // Advanced graphics
-
-      //waits for input "blocking function" nothing happens until it finishes
-      String notScanner = input.nextLine();
+      //waits for scanner "blocking function" nothing happens until it finishes
+      String notScanner = scanner.nextLine();
       System.out.println("You wrote " + notScanner);
-
 
       return this.running;
 
   }
 
-  // Gets input from user. returns an array where getInput[0]
-  //  == x coordinate and getInput[1] == y coordinate
-  private int[] getInput()
+  // Gets scanner from user. returns an array where getPlayerMove[0]
+  //  == x coordinate and getPlayerMove[1] == y coordinate
+  private int[] getPlayerMove()
     {
-        // input[0] == x coordinate
-        // input [1] == y coordinate
+        // input[1] == x coordinate
+        // input[0] == y coordinate
+
         int[] input = new int[2];
+        int rowChoice;
+        int columnChoice;
 
-        int[][] grid = new int[3][3];
-        /*
+        // Prompt user for x coordinate
+        System.out.println("Enter Row: ");
 
-        1,1  1,2  1,3
+        // put value into input[0]
+        rowChoice = scanner.nextInt();
+        input[1] = rowChoice;
 
-        2,1  2,2
-         */
+        // prompt user for y coordinate
+        System.out.println("Enter Column: ");
 
-        return null;
+        // put value into input[1]
+        columnChoice = scanner.nextInt();
+        input[0] = columnChoice;
+
+        System.out.printf("Row: %d \nCol: %d\n",rowChoice,columnChoice);
+
+        return input;
     }
+
+
+    private void receiveAndDisplayMoves ()
+    {
+
+
+
+        // Receive moves
+        int[] move = getPlayerMove();
+        int row = move[1];
+        int col = move[0];
+
+        // Check if move is valid
+        if(row >0 && row <4 && col>0 && col<4)  // validate input
+        {
+            grid[row][col] = this.currentPlayer;
+        }
+
+        // Display Move
+
+
+
+
+
+        char inputX = 'X';
+        char inputO = 'O';
+
+
+
+
+
+        return false;
+    }
+
+
+
 
 
 }
